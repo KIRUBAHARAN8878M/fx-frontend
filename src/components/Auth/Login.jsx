@@ -20,14 +20,14 @@ function Login() {
 
   let formik = useFormik({
     initialValues: {
-      email: "",
+      name: "",
       password: "",
     },
     validate: (values) => {
       let errors = {};
 
-      if (values.email === "") {
-        errors.email = "Please enter email";
+      if (values.name === "") {
+        errors.name = "Please enter username";
       }
       if (values.password === "") {
         errors.password = "Please enter password";
@@ -83,24 +83,24 @@ function Login() {
                         <div className="form-group text-white ">
                           <input
                             className={`form-control bg-transparent text-white ${
-                              formik.errors.email ? `input-error` : ``
+                              formik.errors.name ? `input-error` : ``
                             }`}
                             style={{ border:0,borderBottom: "2px solid #fff"}}
-                            id="exampleInputEmail"
-                            type={"email"}
-                            value={formik.values.email}
+                            id="exampleInputName"
+                            type={"text"}
+                            value={formik.values.name}
                             onChange={formik.handleChange}
-                            name="email"
-                            placeholder="user email"
+                            name="name"
+                            placeholder="user name"
                           />
                           <span style={{ color: "red" }}>
-                            {formik.errors.email}
+                            {formik.errors.name}
                           </span>
                         </div>
                         <div className="form-group pt-5">
                           <input
                            className={`form-control bg-transparent text-white ${
-                            formik.errors.email ? `input-error` : ``
+                            formik.errors.name ? `input-error` : ``
                           }`}
                           style={{ border:0,borderBottom: "2px solid #fff"}}
                             id="exampleInputPassword"

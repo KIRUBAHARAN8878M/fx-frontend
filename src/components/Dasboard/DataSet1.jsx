@@ -22,7 +22,11 @@ function DataSet1() {
   let loadData = async () => {
     setLoading(true);
     try {
-      let response = await axios.get(`${env.api}/data`);
+      let response = await axios.get(`${env.api}/data`,{
+        headers :{
+            'authorization' : window.localStorage.getItem("app-token")
+        }
+    });
       console.log(response.data)
       setResponseData(response.data);
     } catch (error) {
